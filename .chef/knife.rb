@@ -7,3 +7,4 @@ validation_key           '/etc/chef/chef-validator.pem'
 chef_server_url          'https://17.209.114.180'
 cache_type               'BasicFile'
 cache_options( :path => '/Users/devanshusharma/chef-code/.chef/checksums' )
+cookbook_path            '/Users/devanshusharma/chef-code/cookbooks'
