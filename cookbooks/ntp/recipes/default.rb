@@ -7,15 +7,13 @@
 # All rights reserved - Do Not Redistribute
 #
 
-package "ntp" do
-    action [:install]
+package 'ntp'
+
+template '/etc/ntp.conf' do
+  source    'ntp.conf.erb'
+  notifies  :restart, 'service[ntpd]'
 end
 
-template "/etc/ntp.conf" do
-    source "ntp.conf.erb"
-    variables( :ntp_server => "time.nist.gov" )
-end 
-
-service "ntpd" do
-    action[:enable,:start]
-end 
+service 'ntpd' do
+  action [:enable, :start]
+end
